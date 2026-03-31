@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="packaging\accelerate-osu-network.bat" Link="accelerate-osu-network.bat" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="packaging\restore-osu-network.bat" Link="restore-osu-network.bat" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
