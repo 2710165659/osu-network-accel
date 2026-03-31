@@ -1,5 +1,6 @@
 # osu-network-accel
 ![home](image.png)
+
 一个带 GUI 的 Windows 小工具，通过修改 `hosts` 来加速 `osu!` 网络访问。
 
 - 使用同一批 Cloudflare IPv4 网段做候选
