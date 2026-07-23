@@ -11,16 +11,17 @@ if (Test-Path $outputDir) {
     Remove-Item -LiteralPath $outputDir -Recurse -Force
 }
 
-dotnet publish (Join-Path $projectRoot "OsuNetworkAccel.csproj") `
-    -c Release `
-    -r win-x64 `
-    --self-contained true `
-    /p:PublishSingleFile=true `
-    /p:EnableCompressionInSingleFile=true `
-    /p:IncludeNativeLibrariesForSelfExtract=true `
-    /p:DebugType=None `
-    /p:DebugSymbols=false `
-    -o $outputDir
+Push-Location $projectRoot
+try {
+    cargo build --release --locked
+    if ($LASTEXITCODE -ne 0) { throw "cargo build failed with exit code $LASTEXITCODE" }
+    New-Item -ItemType Directory -Force $outputDir | Out-Null
+    Copy-Item (Join-Path $projectRoot "target\release\osu-network-accel.exe") `
+        (Join-Path $outputDir "OsuNetworkAccel.exe")
+}
+finally {
+    Pop-Location
+}
 
 Write-Host
 Write-Host "Publish complete."

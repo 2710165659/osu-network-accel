@@ -1,4 +1,20 @@
-bin/
-obj/
-.state/
-publish/
+# Rust build output
+/target/
+/publish/
+
+# Legacy/generated build output
+/bin/
+/obj/
+/.state/
+
+# Editors and tooling
+/.idea/
+/.vscode/
+*.user
+*.suo
+*.pdb
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db
